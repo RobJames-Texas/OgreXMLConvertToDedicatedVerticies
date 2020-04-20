@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "OgreXMLConvertToDedicatedVerticies": {
+      "commandName": "Project",
+      "commandLineArgs": "P:\\Blender\\models\\TL2_BlenderModels\\MikeInelGames\\ModelsBeta6\\export\\Fionna-Hair05.mesh.xml"
+    }
+  }
+}

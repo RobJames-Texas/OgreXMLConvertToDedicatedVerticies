@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>E:\Users\User\source\repos\OgreXMLConvertToDedicatedVerticies\RJTX.Ogre.Mesh.IO\RJTX.Ogre.Mesh.IO.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RJTX.Ogre.Mesh.Models\RJTX.Ogre.Mesh.Models.csproj" />
+  </ItemGroup>
+
+</Project>
