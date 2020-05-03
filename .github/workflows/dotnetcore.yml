@@ -12,6 +12,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    - name: Install 7Zip PowerShell Module
+      shell: powershell
+      run: Install-Module 7Zip4PowerShell -Force -Verbose
     - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
@@ -29,3 +32,5 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
     - name: Publish
       run: dotnet publish OgreXMLConvertToDedicatedVerticies -c release -r win10-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true /p:PublishReadyToRun=true
+    - name: Zip Win10x64
+      run: powershell Compress-7Zip "OgreXMLConvertToDedicatedVerticies\bin\Release\netcoreapp3.0\win10-x64\publish\*.exe" -ArchiveFileName "RJTX-Ogre-Toolsx64.zip" -Format Zip      
