@@ -34,3 +34,23 @@ jobs:
       run: dotnet publish OgreXMLConvertToDedicatedVerticies -c release -r win10-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true /p:PublishReadyToRun=true
     - name: Zip Win10x64
       run: powershell Compress-7Zip "OgreXMLConvertToDedicatedVerticies\bin\Release\netcoreapp3.0\win10-x64\publish\OgreXMLConvertToDedicatedVerticies.exe" -ArchiveFileName "RJTX-Ogre-Toolsx64.zip" -Format Zip      
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: Automated Release by GitHub Action CI
+        draft: true
+        prerelase: true
+    - name: Upload Release Asset (x64)
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: RJTX-Ogre-Toolsx64.zip
+        asset_name: RJTX-Ogre-Toolsx64.zip
+        asset_content_type: application/zip
