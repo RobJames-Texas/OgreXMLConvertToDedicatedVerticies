@@ -27,3 +27,5 @@ jobs:
       run: dotnet build --configuration Release -r osx.10.10-x64
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    - name: Publish
+      run: dotnet public -c release -r win10-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true /p:PublishReadyToRun=true
