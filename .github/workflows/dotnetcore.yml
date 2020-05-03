@@ -33,4 +33,4 @@ jobs:
     - name: Publish
       run: dotnet publish OgreXMLConvertToDedicatedVerticies -c release -r win10-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true /p:PublishReadyToRun=true
     - name: Zip Win10x64
-      run: powershell Compress-7Zip "OgreXMLConvertToDedicatedVerticies\bin\Release\netcoreapp3.0\win10-x64\publish\*.exe" -ArchiveFileName "RJTX-Ogre-Toolsx64.zip" -Format Zip      
+      run: powershell Compress-7Zip "OgreXMLConvertToDedicatedVerticies\bin\Release\netcoreapp3.0\win10-x64\publish\OgreXMLConvertToDedicatedVerticies.exe" -ArchiveFileName "RJTX-Ogre-Toolsx64.zip" -Format Zip      
