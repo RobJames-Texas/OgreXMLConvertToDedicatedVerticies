@@ -19,7 +19,11 @@ jobs:
         dotnet-version: 3.1.101
     - name: Install dependencies
       run: dotnet restore
-    - name: Build
+    - name: Build win10-x64
       run: dotnet build --configuration Release -r win10-x64
+    - name: Build win10-x86
+      run: dotnet build --configuration Release -r win10-x86
+    - name: Build osx
+      run: dotnet build --configuration Release -r osx.10.10-x64
     - name: Test
       run: dotnet test --no-restore --verbosity normal
